@@ -8,7 +8,8 @@ import spacy
 import pickle
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
-
+import os
+model_path = os.path.join(os.path.dirname(__file__), "en_core_web_sm")
 # Initialize the summarization pipeline
 summarizer = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6")
 
@@ -19,14 +20,7 @@ with open('label_encoder.pkl', 'rb') as label_encoder_file:
     label_encoder = pickle.load(label_encoder_file)
 
 
-try:
-    nlp = spacy.load("en_core_web_sm")
-except OSError:
-    import subprocess
-    import sys
-    subprocess.run([sys.executable, "-m", "spacy", "download", "en_core_web_sm"])
-    nlp = spacy.load("en_core_web_sm")
-
+nlp = spacy.load(model_path)
 # Load the machine learning model using Keras
 model = load_model('my_model.h5')
 
