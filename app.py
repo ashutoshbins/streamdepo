@@ -9,7 +9,7 @@ import pickle
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 import os
-model_path = os.path.join(os.path.dirname(__file__), "en_core_web_sm/en_core_web_sm-3.7.1")
+model_path = os.path.join(os.path.dirname(__file__), "en_core_web_sm")
 # Initialize the summarization pipeline
 summarizer = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6")
 
