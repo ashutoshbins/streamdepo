@@ -52,7 +52,7 @@ def preprocess_text(text):
 
 # Streamlit UI
 def main():
-    st.title('PDF Analyzer')
+    st.title('CASE Summarizer Using ML')
     pdf_url = st.text_input('Paste PDF URL:')
     if st.button('Analyze'):
         if not pdf_url.startswith('/supremecourt'):
