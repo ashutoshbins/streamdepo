@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Analyzer</title>
+
+    <style>
+        body {
+            background-color: #000;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2, h3 {
+            color: #00ff00;
+        }
+
+        form {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #000;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #00ff00;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #00ff00;
+            border-radius: 4px;
+            background-color: #000;
+            color: #00ff00;
+        }
+
+        button {
+            background-color: #00ff00;
+            color: #000;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #008000;
+        }
+
+        p.error {
+            color: #ff0000;
+        }
+
+        strong {
+            color: #00ff00;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            background-color: #000;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+            color: #00ff00;
+        }
+
+        /* Additional styling for the new content */
+
+        h2, h3 {
+            color: #ff0000;
+            margin-top: 20px;
+        }
+
+        p {
+            color: #00ff00;
+        }
+
+        /* Add any additional styling for the new content here */
+
+    </style>
+</head>
+<body>
+    <h1>PDF Analyzer</h1>
+    
+    <form method="post" action="/">
+        <label for="pdf_url">Paste PDF URL:</label>
+        <input type="text" id="pdf_url" name="pdf_url" required>
+        <button type="submit">Analyze</button>
+    </form>
+
+    {% if error_message %}
+        <p class="error">{{ error_message }}</p>
+    {% endif %}
+
+    {% if pdf_url %}
+        <h2>Analysis Results</h2>
+        <p><strong>PDF URL:</strong> {{ pdf_url }}</p>
+
+        {% if prediction_result %}
+            <p><strong>Sentiment:</strong> {{ prediction_result }}</p>
+        {% endif %}
+
+        {% if priority_message %}
+            <p><strong>Priority:</strong> {{ priority_message }}</p>
+        {% endif %}
+
+        <h3>Summarized Content</h3>
+        <pre>
+            {% for line in summarized_content %}
+                {{ line }}<br>
+            {% endfor %}
+        </pre>
+    {% endif %}
+</body>
+</html>

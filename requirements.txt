@@ -1,0 +1,8 @@
+Flask==2.3.3
+transformers==4.36.2
+PyPDF2==3.0.1
+spacy==3.7.2
+scikit-learn==1.2.2
+tensorflow==2.13.0
+torch
+requests==2.28.2
