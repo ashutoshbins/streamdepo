@@ -1,23 +1,23 @@
 # Use the latest version of Flask
 Flask
 
-# Use a compatible version of transformers with PyTorch
-transformers==4.10.0
+# Use the latest version of transformers
+transformers
 
-# Use a compatible version of PyPDF2 with Python 3
-PyPDF2==1.26.0
+# Use the latest version of PyPDF2
+PyPDF2
 
 # Use the latest version of spaCy
 spacy
 
-# Use a compatible version of scikit-learn with TensorFlow
-scikit-learn==0.24.2
+# Use the latest version of scikit-learn
+scikit-learn
 
-# Use the supported version of TensorFlow on Streamlit Cloud
+# Use the latest version of TensorFlow that is supported by Streamlit Cloud
 tensorflow==2.6.0
 
-# Use the latest version of PyTorch
-torch
+# Use the latest version of PyTorch that is supported by Streamlit Cloud
+torch==1.10.0
 
 # Use the latest version of requests
 requests
