@@ -18,8 +18,14 @@ with open('tokenizer.pkl', 'rb') as tokenizer_file:
 with open('label_encoder.pkl', 'rb') as label_encoder_file:
     label_encoder = pickle.load(label_encoder_file)
 
-# Load the spaCy model for preprocessing
-nlp = spacy.load('en_core_web_sm')
+
+try:
+    nlp = spacy.load("en_core_web_sm")
+except OSError:
+    import subprocess
+    import sys
+    subprocess.run([sys.executable, "-m", "spacy", "download", "en_core_web_sm"])
+    nlp = spacy.load("en_core_web_sm")
 
 # Load the machine learning model using Keras
 model = load_model('my_model.h5')
