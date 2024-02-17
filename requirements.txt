@@ -13,7 +13,7 @@ spacy
 scikit-learn
 
 # Use the latest version of TensorFlow that is supported by Streamlit Cloud
-tensorflow==2.4.1
+tensorflow>=2.6.0
 
 # Use the latest version of PyTorch that is supported by Streamlit Cloud
 torch==1.10.0
